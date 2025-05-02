@@ -4,7 +4,7 @@
 ![alt text](screenshot/tugas6/todoCompleted.png) 
 
 ## 2. Todo Unclompleted
-[alt text](screenshot/tugas6/todoUncompleted.png) 
+![alt text](/screenshot/tugas6/todoUncompleted.png)
 
 ## 3. Todo Edit
 [alt text](screenshot/tugas6/todoEdit.png)  
