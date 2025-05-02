@@ -13,3 +13,8 @@ Login
 ![Image](https://github.com/user-attachments/assets/972b9ac5-37f8-404e-9364-d87a2131d98e)
 
 ![Image](https://github.com/user-attachments/assets/ba83ede9-5dc1-4a44-8a94-3c9920539748)
+
+Dashboard
+![Image](https://github.com/user-attachments/assets/e1b5ed5f-562e-4eed-988f-c584446c24c0)
+
+![Image](https://github.com/user-attachments/assets/be9eacad-429c-4dd9-8cab-67602b67bfb8)
