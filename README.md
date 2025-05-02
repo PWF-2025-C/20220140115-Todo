@@ -1,1 +1,1 @@
-
+Terminal – command instalasi breeze
