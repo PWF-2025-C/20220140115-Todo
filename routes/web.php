@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 // Welcome Route
@@ -25,6 +26,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/todo', [TodoController::class, 'destroyCompleted'])->name('todo.deleteallcompleted');
     Route::patch('/todo/{todo}/complete', [TodoController::class, 'complete'])->name('todo.complete');
     Route::patch('/todo/{todo}/incomplete', [TodoController::class, 'uncomplete'])->name('todo.uncomplete');
+
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::patch('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 });
 
 // Admin Routes
@@ -34,16 +42,16 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('/user/{user}/removeadmin', [UserController::class, 'removeadmin'])->name('user.removeadmin');
 });
 
-// Todo Routes
-Route::get('/todo', [TodoController::class, 'index'])->name('todo.index');
-Route::get('/todo/create', [TodoController::class, 'create'])->name('todo.create');
-Route::get('/todo/edit', [TodoController::class, 'edit'])->name('todo.edit');
-Route::patch('/todo/{todo}', [TodoController::class, 'update'])->name('todo.update');
-Route::delete('/todo/{todo}', [TodoController::class, 'destroy'])->name('todo.destroy');
+// // Todo Routes
+// Route::get('/todo', [TodoController::class, 'index'])->name('todo.index');
+// Route::get('/todo/create', [TodoController::class, 'create'])->name('todo.create');
+// Route::get('/todo/edit', [TodoController::class, 'edit'])->name('todo.edit');
+// Route::patch('/todo/{todo}', [TodoController::class, 'update'])->name('todo.update');
+// Route::delete('/todo/{todo}', [TodoController::class, 'destroy'])->name('todo.destroy');
 
-// User Routes
-Route::get('/user', [UserController::class, 'index'])->name('user.index');
-Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+// // User Routes
+// Route::get('/user', [UserController::class, 'index'])->name('user.index');
+// Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
 // Auth Routes
 require __DIR__.'/auth.php';
