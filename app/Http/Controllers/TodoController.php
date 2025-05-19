@@ -17,12 +17,12 @@ class TodoController extends Controller
         //     ->get();
 
         $todos = Todo::with('category') // <-- eager load
-            ->where('user_id', auth()->user()->id)
+            ->where('user_id', Auth::id())
             ->orderBy('is_done', 'asc')
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(10);
 
-        $todosCompleted = Todo::where('user_id', Auth::user()->id)
+        $todosCompleted = Todo::where('user_id', Auth::id())
             ->where('is_done', true)
             ->count();
 
@@ -35,15 +35,15 @@ class TodoController extends Controller
     return view('todo.create', compact('categories'));
     }
 
-public function edit(Todo $todo)
-{
-    if (auth()->user()->id == $todo->user_id) {
-        $categories = Category::all(); // Tambahkan ini
-        return view('todo.edit', compact('todo', 'categories'));
-    } else {
-        return redirect()->route('todo.index')->with('danger', 'You are not authorized to edit this todo!');
+    public function edit(Todo $todo)
+    {
+        if (auth()->user()->id == $todo->user_id) {
+            $categories = Category::all(); // Tambahkan ini
+            return view('todo.edit', compact('todo', 'categories'));
+        } else {
+            return redirect()->route('todo.index')->with('danger', 'You are not authorized to edit this todo!');
+        }
     }
-}
 
 
 
