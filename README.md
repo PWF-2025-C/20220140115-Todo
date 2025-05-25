@@ -1,3 +1,6 @@
+![Laravel Logo](https://laravel.com/img/logomark.min.svg)
+
+
 TERMINAL – COMAND INSTALASI BREEZE
 ![Image](https://github.com/user-attachments/assets/09607c00-60fd-45bc-ba43-50826047f293)
 
