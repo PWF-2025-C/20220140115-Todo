@@ -48,7 +48,6 @@
                                             <a href="{{ route('categories.edit', $category) }}" class="text-blue-500 hover:underline">
                                                 Edit
                                             </a>
-
                                             {{-- Delete --}}
                                             <form action="{{ route('categories.destroy', $category) }}" method="POST"
                                                 onsubmit="return confirm('Are you sure you want to delete this category?');">

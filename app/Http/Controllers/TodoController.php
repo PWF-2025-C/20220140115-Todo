@@ -29,7 +29,6 @@ class TodoController extends Controller
         return view('todo.index', compact('todos', 'todosCompleted'));
     }
 
-
     public function create(){
         $categories = Category::all(); // ambil semua kategori dari tabel 'categories'
     return view('todo.create', compact('categories'));
@@ -37,7 +36,7 @@ class TodoController extends Controller
 
     public function edit(Todo $todo)
     {
-        if (auth()->user()->id == $todo->user_id) {
+        if (Auth::id() == $todo->user_id) {
             $categories = Category::all(); // Tambahkan ini
             return view('todo.edit', compact('todo', 'categories'));
         } else {
@@ -75,7 +74,7 @@ class TodoController extends Controller
 
     Todo::create([
         'title' => $request->title,
-        'user_id' => auth()->id(),
+        'user_id' => auth::id(),
         'category_id' => $request->category_id, // <-- pastikan ini ada!
     ]);
 
