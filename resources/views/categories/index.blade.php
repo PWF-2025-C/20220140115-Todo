@@ -14,8 +14,8 @@
 
                         @if (session('success'))
                             <p x-data="{ show: true }" x-show="show" x-transition
-                               x-init="setTimeout(() => show = false, 5000)"
-                               class="text-sm text-green-600 dark:text-green-400">
+                            x-init="setTimeout(() => show = false, 5000)"
+                            class="text-sm text-green-600 dark:text-green-400">
                                 {{ session('success') }}
                             </p>
                         @endif
