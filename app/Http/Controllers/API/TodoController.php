@@ -119,8 +119,8 @@ class TodoController extends Controller
     public function index()
     {
         $todos = Todo::where('user_id', Auth::id())
-                     ->with('category')
-                     ->get();
+                        ->with('category')
+                        ->get();
 
         return response()->json([
             'status_code' => 200,
@@ -130,62 +130,7 @@ class TodoController extends Controller
     }
     /**
      * Mencari Todo berdasarkan judul atau kategori.
-     */
-    #[
-        Response(
-            status: 200,
-            content: [
-                'status_code' => 200,
-                'message' => 'Todo berhasil diambil',
-                'data' => [
-                    [
-                        'id' => 1,
-                        'title' => 'Contoh Todo',
-                        'user_id' => 1,
-                        'is_done' => false,
-                        'category_id' => 1,
-                        'category' => [
-                            'id' => 1,
-                            'title' => 'Contoh Kategori',
-                            'user_id' => 1
-                        ]
-                    ]
-                ]
-            ]
-        )
-    ]
-    #[
-        Response(
-            status: 401,
-            content: [
-                'success' => false,
-                'message' => 'Tidak terautentikasi atau token tidak valid'
-            ]
-        )
-    ]
-    public function search(Request $request)
-    {
-        $query = $request->query('q');
-
-        $todos = Todo::where('user_id', Auth::id())
-            ->where(function ($q) use ($query) {
-                $q->where('title', 'like', '%' . $query . '%')
-                    ->orWhereHas('category', function ($q) use ($query) {
-                        $q->where('title', 'like', '%' . $query . '%')->where('user_id', Auth::id());
-                    });
-            })
-            ->with('category')
-            ->get();
-
-        return response()->json([
-            'status_code' => 200,
-            'message' => 'Todo berhasil diambil',
-            'data' => $todos,
-        ], 200);
-    }
-    /**
-     * Memperbarui todo yang ada.
-     */
+     */ 
     #[
         Response(
             status: 200,
